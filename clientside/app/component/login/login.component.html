@@ -1,0 +1,69 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body >
+  
+    <div  class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid"  >
+
+<div class="login"  style= "border-style: solid;border-bottom-color:#92a8d1;">
+   <div id="heading" style="margin-left:135px; "><h2><b>Sign In</b></h2></div>
+<div id="center">
+
+   
+
+<div class="ui-g" >
+        <div class="ui-float-label">
+        <input id="float-input1" type="text" class="ui-g-12" size="30" pInputText [(ngModel)]="login.username" name="email"> 
+        <label for="float-input">Username</label>
+      </div>
+</div>
+
+
+<br/><br/>
+
+        <div class="ui-g">
+          <div class="ui-float-label">
+            <input id="float-input2" type="password" size="30" class="ui-g-12" pInputText [(ngModel)]="login.password" name="pwd" > 
+            <label for="float-input">Password</label>
+          </div>
+        </div>
+
+
+<br/>
+<div><button pButton type="button" label="Login" (click)="submit()"class="ui-button-raised ui-button-success"></button></div>
+<div style="color:red;" *ngIf="!validationSatisfied">Your password or username is incorrect</div>
+</div>
+
+
+</div>
+</div>
+</body>
+</html> -->
+<div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        
+        <input id="float-input2"  type="text" placeholder="name"  pInputText [(ngModel)]="login.username" name="email"/>
+        <input type="password" placeholder="password"  pInputText [(ngModel)]="login.password" name="pwd"/>
+       
+        <button pButton type="button" label="Login" (click)="submit()" class="ui-button-raised ui-button-success" style="padding-top:11px;" >Login</button>
+        <p class="message">Enroll as Guest User? <a (click)=dash() href="">click </a></p>
+        <div style="color:red;" *ngIf="!validationSatisfied">Your password or username is incorrect</div>
+        <!-- <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6Lff7WIUAAAAAG2UuSYktpVi2Mz7tB6cgXnO1Tez"></div>
+              <div *ngIf="captchaError" class="error">Recaptcha not verified.</div>
+          </div> -->
+      </form>
+      <!-- <form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form> -->
+    </div>
+  </div>

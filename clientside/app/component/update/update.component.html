@@ -1,0 +1,114 @@
+
+
+<div class="jumbotron" id="boarder">
+    <div class="Heading"><p class="para">CERTIFICATION UPDATION FORM</p></div>
+  <div class="UpdateAlign">
+      <p-messages [(value)]="msgs">haiiiiii</p-messages>
+<div  class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 50px 0px">
+
+
+<form [formGroup]="updateForm" >
+    <div  class="ui-grid-row">
+        <div  class="ui-grid-col-2">
+           <b>Course Name*:</b>
+         </div>
+        <div  class="ui-grid-col-6">
+            <!-- <input type="text" class="form-control"  name="firstName" [(ngModel)]="user.name"  value="user.name" pInputText> -->
+            <!-- <input type="text" formControlName="coursename" class="form-control" pInputText > -->
+            <p-autoComplete formControlName="coursename" [suggestions]="results" (completeMethod)="search($event)" required></p-autoComplete>
+            <div *ngIf="f.coursename.invalid && (f.coursename.dirty || f.coursename.touched)"  class="alert alert-danger">
+                    <div *ngIf="f.coursename.errors.required" class="errorMessages">
+                       Course Name is required.
+                      </div>
+                  </div>
+        </div>
+    </div>
+        
+        <br/> <br/>
+
+
+        
+            
+
+        <div  class="ui-grid-row">
+                <div  class="ui-grid-col-2">
+               <b> Planned Start Date*:</b>
+                 </div>
+                <div  class="ui-grid-col-6">
+                    <!-- <input type="text" class="form-control"  name="firstName" [(ngModel)]="user.pdate"  value="hai" pInputText> -->
+                    <input type="date" formControlName="pdate" class="form-control" pInputText required>
+                    <div *ngIf="f.pdate.invalid && (f.pdate.dirty || f.pdate.touched)" class="alert alert-danger">
+                            <div *ngIf="f.pdate.errors.required" class="errorMessages" >
+                                startdate is required.
+                              </div>
+                          </div>
+                </div>
+            </div>
+                
+                <br/> <br/>
+
+
+
+
+                <div  class="ui-grid-row">
+                        <div  class="ui-grid-col-2">
+                            <b>Planned End Date*:</b>
+                         </div>
+                        <div  class="ui-grid-col-6">
+                            <!-- <input type="text" class="form-control"  name="firstName" [(ngModel)]="user.edate"  value="user.name" pInputText> -->
+                            <input type="date" formControlName="edate" class="form-control" (change)="selectDate($event)"  pInputText >
+                            <div *ngIf="dateerror" class="errorMessages" style="color:red;">Starting date should be less than ending date</div>
+                            <div *ngIf="f.edate.invalid && (f.edate.dirty || f.edate.touched)" class="alert alert-danger">
+                                <div *ngIf="f.edate.errors.required" class="errorMessages">
+                                    EndDate is required.
+                                  </div>
+                                  </div>
+                        </div>
+                    </div>
+                        
+                        <br/> <br/>
+                        <div  class="ui-grid-row">
+                                <div  class="ui-grid-col-2">
+                                 <b> Duration*:</b>
+                                 </div>
+                                <div  class="ui-grid-col-6">
+                                    <!-- <input type="text" class="form-control"  name="firstName" [(ngModel)]="user.duration"  value="user.name" pInputText> -->
+                                    <!-- <input type="text" formControlName="duration" class="form-control" pInputText > -->
+                                 <p-dropdown [options]="durations" formControlName="duration" [ngStyle]="myStyles"></p-dropdown> 
+                                    <div *ngIf="f.duration.invalid && (f.duration.dirty || f.duration.touched)" class="alert alert-danger">
+                                            <div *ngIf="f.duration.errors.required" class="errorMessages">
+                                                Duration is required.
+                                            </div>
+                                          </div>
+                                </div>
+                            </div>
+
+                                
+                                <br/> <br/>
+                                <div  class="ui-grid-row">
+                                        <div  class="ui-grid-col-2">
+                            
+                                       <b>Upload certificate *:</b>
+                                    </div>
+                                <div  class="ui-grid-col-6">
+                                 
+                                    <input type="file" class="form-control"  formControlName="fileinput"  (change)="selectFile($event)"  pInputText  /> 
+                                    <div *ngIf="f.fileinput.invalid && (f.fileinput.dirty || f.fileinput.touched)" class="alert alert-danger">
+                                            <div *ngIf="f.fileinput.errors.required" class="errorMessages">
+                                             File  is required.
+                                            </div>
+                                        </div>
+                                </div>
+                              
+                            </div>
+
+                            <div><button type="button"  pButton label="UpdateRecord" (click)="onUpdate();" style="width:115px" ></button></div>  
+                            <div *ngIf=updatedstatus>
+                              <p-message severity="success" text="Record Updated"></p-message> 
+                             </div>                     
+</form>
+
+</div>
+
+</div>
+</div>

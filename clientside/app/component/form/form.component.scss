@@ -1,0 +1,92 @@
+input[type=text],[type=email],[type=date],[type=file]
+{
+    width: 100%;
+  
+
+    box-sizing: border-box;
+  }
+  div#heading
+  {
+    margin-right: 720px!important;
+  
+
+  }
+ 
+  #but
+  {
+  margin-right: 850px;
+  margin-left: 518px;
+    /* width: 5%; */
+    height: 5%;
+     width: 150px;
+  text-align: center;
+  /* margin:0 auto; */
+
+  }
+  
+  #s{
+    text-align: center;
+    margin-right: 870px;
+    margin-left: 589px;
+
+  }
+  #but[_ngcontent-c1] {
+    margin-right: 996px;
+    margin-left: 518px;
+    height: 5%;
+    width: 150px;
+    text-align: center;
+}
+//   #cal
+// {
+//  width: 150%;
+//   box-sizing: border-box;
+  
+
+
+// font-weight: normal;
+
+//   }
+body{
+  background-color: #ffffcc;
+}
+.panel-primary>.panel-heading {
+  color: #fff;
+  background-color: #a94442;
+  border-color: #337ab7;
+}
+
+.alert
+{
+padding: 0px!important;
+color: #f92424;
+border-color: #eee;
+}
+.jumbotron {
+  padding-top: -3px;
+  padding-bottom: 30px;
+  
+  margin-bottom: 44px;
+  color: inherit;
+  background-color: #eee;
+  padding-left: 50px;
+  margin-left: 368px;
+  margin-right: 368px;
+  margin-top: 44px
+}
+div#boarder{
+  border: 3px solid #e2d6d6;
+}
+.errorMessages{
+ 
+  background-color: #eee;
+    border: #eee;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    
+    font-size: 85%;
+}
+// .alert-danger {
+//   color: #a94442;
+//   background-color: #f2dede;
+ 
+// }

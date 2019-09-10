@@ -1,0 +1,25 @@
+
+
+<div  class="ui-grid-row">
+    <div  class="ui-grid-col-12">
+     Please Enter the efxid of employee to view the certificates which he/she holds 
+    </div>
+  </div>
+  
+<div  class="ui-grid-row">
+<div  class="ui-grid-col-6">
+  <input type="text" pInputText [(ngModel)]="efxid">
+</div>
+</div>
+<div  class="ui-grid-row">
+  <br/>
+<button pButton type="button" label="Click" (click)=fetch(efxid)></button>
+</div>
+<div>
+
+    
+
+   <img src="data:image/JPEG;base64,{{image.pic}}"  *ngFor="let image of images"> 
+ 
+<!-- <img src="http://localhost:8080/Image/7414" width="42" height="42"> -->
+</div>

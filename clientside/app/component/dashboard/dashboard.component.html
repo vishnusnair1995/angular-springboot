@@ -1,0 +1,185 @@
+
+                    
+    <!-- <div class="panel panel-primary"> -->
+            <!-- <div class="panel-heading">EQUIFAX CERTIFICATION PAGE</div>  -->
+            
+             
+                   
+                            <div *ngIf="id=='true'">
+                           <div class="panelButtons" > 
+                                <button id="logoutButton" type="button" pButton label="Logout" (click)="logout()" ></button>
+                            </div>  
+                            </div>
+
+                            <div *ngIf="id=='false'">
+                           
+                            <div class="panelButtons" >
+                                  <button  id="login" type="button"  pButton label="AdminLogin"  (click)="login()" ></button>
+                                </div>
+                            </div>
+                            <div class="addButtons" >
+                                <button  class="addButton" type="button"  pButton label="AddRecord" (click)=add() style="margin-left: 49px!important;margin-top: 76px!important" ></button>
+                            </div>
+                 
+                    
+      
+         
+          <!-- </div>  -->
+          
+         
+
+
+
+
+
+<div class="content-section implementation"  style= "margin-top: 26px;
+margin-left: -3px;"id="contentSection">
+
+
+    <p-table #dt [columns]="cols" [value]="usermodel" dataKey="efxid" [paginator]="true" [rows]="25" class="some-custom-class-name">
+        
+        <ng-template pTemplate="caption">
+                      
+            <i class="fa fa-search" style="margin:16px 4px 0 0"></i>
+           
+            <input type="text" pInputText size="50" placeholder="Search by Details" (input)="dt.filterGlobal($event.target.value, 'contains')" class="SearchBar" style="margin-left: 1470px;margin-right: -8px">
+ </ng-template>
+
+
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th style="width: 3em"></th>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                   <span *ngIf="col.header!== 'PHONENUMBER'">  
+                     <p-sortIcon [field]="col.field" *ngIf="col.header!== 'PHONENUMBER'" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                   </span> 
+                </th>
+            </tr>
+        </ng-template> 
+  
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+        <ng-template pTemplate="body" let-rowData  let-expanded="expanded"  let-columns="columns">
+          <!-- <tr>{{rowData.efxid}}</tr> -->
+
+ 
+            <tr [ngClass]="doSomething() %2  ? 'even' : null" >
+                    <!-- <td> {{i}}</td>      -->
+                   
+                   
+                <td >
+                    
+                    <a href="#" [pRowToggler]="rowData" (click)="fetchdetails(rowData.efxid)" >
+                        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i> 
+                    </a>
+                </td>
+            
+                <td *ngFor="let col of columns; let i = index"  class="rowWidth" >
+                       <!-- {{rowData[cols[4].field]}} -->
+                      <!-- <div *ngIf={{rowData[cols[4].field]}} -->
+                          <!-- <span  *ngIf="rowData[cols[4].field] > 0" >{{rowData[col.field]}} </span> -->
+       
+
+                     {{rowData[col.field]}} 
+                </td>
+            
+            </tr>
+        
+        </ng-template>
+    
+       
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr   id="boxStructure" *ngFor="let user of userdata">
+                    
+                 <td [attr.colspan]="columns.length + 1" >
+                    <div class="ui-g ui-fluid" style="font-size:16px;padding:20px" id="uiGiGluid">
+                        <div class="ui-g-12 ui-md-3"></div>
+                        <div class="ui-g-12 ui-md-6"  id= "courseDetails">
+                            <div class="col-sm-12">
+                                <div class="col-sm-9" id ="correctCourseDetails">
+                                    
+                                
+                                    <div class="ui-g-12">
+                                             Course Name :  <b> {{user.coursename | uppercase}}</b> 
+                                     </div>
+                                     
+                                   
+                                    <div class="ui-g-12">
+                                            Start Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :     {{user.pdate}}
+                                    </div>
+                                     <div class="ui-g-12">
+                                        End Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{user.edate}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                         Duration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{user.duration}}
+                                    </div> 
+                                    
+                                </div>
+                                <div class="col-sm-3">
+                                        <div><p-button class="temporaryButtons" pTooltip="click to show record"  (click)=showCertificate(user.efxid,user.coursename) class="label-css" style="position: relative;top:-1px;padding: 10px;"><span class="glyphicon glyphicon-eye-open" style="padding-top: 5px"></span></p-button></div>
+                                                <!-- <br/><br/> -->
+                                               
+                                               <div *ngIf="id=='true'"><p-button  class="temporaryButtons" pTooltip="click to delete record" (click)=delete(user.id,user.efxid) class="label-css" style="position: relative;top:-4px;padding: 10px;"><span class="glyphicon glyphicon-trash" style="padding-top: 5px"></span></p-button></div><br/>
+                                               <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+
+                                               
+                                                  <div> <p-button class="temporaryButtons" pTooltip="click to edit record"  (click)=updateCertificate(user.id,user.efxid) class="label-css" style="position: relative;top:-28px ;padding:10px;" ><span class="glyphicon glyphicon-pencil" style="padding-top: 5px"></span></p-button>
+                                                </div>        
+                                                       
+                                        </div>
+                                </div>
+                    </div>
+                   
+                
+
+
+                    <div *ngIf="available">
+                        <p-dialog header="Title" [(visible)]="display" header="CERTIFICATE"  [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+                        [maximizable]="true" [baseZIndex]="10000">
+                        <img src="data:image/JPEG;base64,{{image.pic}}"  *ngFor="let image of images" style="
+                        width: 100%;"> 
+                        </p-dialog>
+                    </div>            
+
+                    <div *ngIf="!available">
+                        <p-dialog header="Title" [(visible)]="display" header="NO CERTIFICATES TO DISPLAY"  [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+                         [maximizable]="true" [baseZIndex]="10000">
+                        </p-dialog>
+                    </div>
+                              
+                    </div>
+                </td>
+                
+             </tr>
+             
+         </ng-template>
+           
+    </p-table>
+   
+    <div style="margin-top: -15px!important;margin-left: -46px!important"><button class="a" type="button"  pButton label="Dashboard" (click)=dashboard() style="margin-left: 49px!important;" ></button></div>
+
+    <br/>
+   
+</div>

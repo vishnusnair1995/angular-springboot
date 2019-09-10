@@ -1,0 +1,27 @@
+.HEADING
+{
+    //position: relative!important;
+    margin-left: 39%;
+    color: black;
+    
+}
+.Graph
+{
+    //position: relative!important;
+  
+    //position: relative;
+    //z-index:999;               
+    left: 200px;
+    top: 30px;
+    left:0!important;
+    right:0;
+    padding:10px;
+    top:100px;
+    border: 5px solid darkgrey;
+    overflow:hidden;
+  
+}
+
+::ng-deep p-chart div {
+    position: unset !important
+}

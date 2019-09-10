@@ -1,0 +1,280 @@
+
+
+<div>
+<div class="panel panel-primary">
+        <!-- <div class="panel-heading">EQUIFAX CERTIFICATION REGISTRATION FORM</div> -->
+        </div>
+<!-- <p-panel header="EQUIFAX CERTIFICATION REGISTRATION FORM">  -->
+       
+        <div class="jumbotron" id="boarder">
+            
+        <div id="heading" ><b>EQUIFAX CERTIFICATION PORTAL</b></div>
+  <div  class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 50px 0px">
+       
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+        
+        <div  class="ui-grid-row">
+                <div class="ui-g-2"></div>
+              <div  class="ui-grid-col-2">
+              <b> Name *:</b>
+              </div>
+          <div  class="ui-grid-col-6">
+              <input type="text" formControlName="name" class="form-control" pInputText >
+           
+              <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)" class="alert alert-danger">
+                  <div *ngIf="f.name.errors.required" class="errorMessages">
+                      Name is required.
+                    </div>
+                </div>
+           
+           </div>
+       </div>
+<br/> <br/>
+
+
+
+
+        <div  class="ui-grid-row">
+                <div class="ui-g-2"></div>
+          <div  class="ui-grid-col-2">
+                <b>Email Address *:</b>
+          </div>
+              <div  class="ui-grid-col-6">
+                  <input type="text" formControlName="email" class="form-control" pInputText  />
+                  <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)" class="alert alert-danger">
+                      <div *ngIf="f.email.errors.required" class="errorMessages">
+                          Email is required.
+                      </div>
+                        <div *ngIf="f.email.errors.email" class="errorMessages" >Email must be a valid email address</div>
+                  </div>
+               </div>
+        </div> 
+<br/> <br/> 
+
+
+
+
+       <div  class="ui-grid-row">
+            <div class="ui-g-2"></div>
+          <div  class="ui-grid-col-2">
+                <b>  Ust Id *:</b>
+          </div>
+          <div  class="ui-grid-col-6">
+            <input type="text" class="form-control"  formControlName="ustid"  pInputText />
+            <div *ngIf="f.ustid.invalid && (f.ustid.dirty || f.ustid.touched)" class="alert alert-danger">
+                <div *ngIf="f.ustid.errors.required" class="errorMessages" >
+                    UstId is required.
+                  </div>
+              </div>
+          </div>
+       </div>
+<br/> <br/>
+
+
+
+      <div  class="ui-grid-row">
+            <div class="ui-g-2"></div>
+          <div  class="ui-grid-col-2">
+                <b>   Efx Id *:</b>
+          </div>
+          <div  class="ui-grid-col-6">
+              <input type="text" class="form-control"  formControlName="efxid"  pInputText />
+              <div *ngIf="f.efxid.invalid && (f.efxid.dirty || f.efxid.touched)" class="alert alert-danger">
+                  <div *ngIf="f.efxid.errors.required" class="errorMessages">
+                      Name is required.
+                    </div>
+                </div>
+          </div>
+      </div>
+<br/> <br/>
+
+      <div  class="ui-grid-row">
+            <div class="ui-g-2"></div>
+          <div  class="ui-grid-col-2">
+                <b> CourseName *:</b>
+          </div>
+          <div  class="ui-grid-col-6">
+              <!-- <input type="text" class="form-control" formControlName="coursename"   pInputText   /> -->
+              <p-autoComplete formControlName="coursename" [suggestions]="results" (completeMethod)="search($event)" required></p-autoComplete>
+              <div *ngIf="f.coursename.invalid && (f.coursename.dirty || f.coursename.touched)"  class="alert alert-danger">
+                  <div *ngIf="f.coursename.errors.required" class="errorMessages">
+                     Course Name is required.
+                    </div>
+                </div>
+          </div>
+      </div>
+<br/> <br/>
+
+
+<!-- <div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+      <div  class="ui-grid-col-2">
+            <b> CourseName *:</b>
+      </div>
+      <div  class="ui-grid-col-6">
+         <p-dropdown [options]="cities" formControlName="coursename"  ></p-dropdown>
+
+          <div *ngIf="f.coursename.invalid && (f.coursename.dirty || f.coursename.touched)"  class="alert alert-danger">
+              <div *ngIf="f.coursename.errors.required" class="errorMessages">
+                 Course Name is required.
+                </div>
+            </div>
+      </div>
+  </div>
+<br/> <br/> -->
+
+
+
+
+
+      <!-- <div  class="ui-grid-row">
+          <div  class="ui-grid-col-2">
+              Planned Start and End Date *:
+          </div>
+              <div  class="ui-grid-col-6">
+               <div id="cal"> <p-calendar  formControlName="pdate" selectionMode="range" [readonlyInput]="true" [showOtherMonths]="true" [selectOtherMonths]="false" showOnFocus="true" ></p-calendar>
+             
+               </div>
+                  <input type="date" class="form-control" formControlName="pdate"  pInputText   
+                  <div *ngIf="f.pdate.invalid && (f.pdate.dirty || f.pdate.touched)" class="alert alert-danger">
+                      <div *ngIf="f.pdate.errors.required">
+                          Planned start and end  date  is required.
+                        </div>
+                    </div>
+              </div> 
+      </div>
+<br/> <br/> -->
+<div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+    <div  class="ui-grid-col-2">
+            <b> PlannedStartDate *:</b>
+    </div>
+    <div  class="ui-grid-col-6">
+        <input type="date" class="form-control" formControlName="pdate"   pInputText  />
+        <div *ngIf="f.pdate.invalid && (f.pdate.dirty || f.pdate.touched)" class="alert alert-danger">
+            <div *ngIf="f.pdate.errors.required" class="errorMessages">
+                PlannedStartDate is required.
+              </div>
+          </div>
+    </div>
+</div>
+<br/> <br/> 
+
+
+
+
+
+
+  <div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+      <div  class="ui-grid-col-2">
+         <b> PlannedEndDate *:</b>
+      </div>
+      <div  class="ui-grid-col-6">
+          <!-- <input type="date" class="form-control" formControlName="edate"   pInputText    /> -->
+          <input type="date" formControlName="edate" class="form-control" (change)="selectDate($event)"  pInputText >
+                <div *ngIf="dateerror" class="errorMessages" style="color:red;">Starting date should be less than ending date</div>
+          <div *ngIf="f.edate.invalid && (f.edate.dirty || f.edate.touched)" class="alert alert-danger">
+              <div *ngIf="f.edate.errors.required" class="errorMessages">
+                  EndDate is required.
+                </div>
+            </div>
+      </div>
+  </div>
+<br/> <br/> 
+
+
+
+  <div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+      <div  class="ui-grid-col-2">
+         <b> Duration *:</b>
+       </div>
+          <div  class="ui-grid-col-6">
+               <input type="text" class="form-control" formControlName="duration"   pInputText  />
+               <div *ngIf="f.duration.invalid && (f.duration.dirty || f.duration.touched)" class="alert alert-danger">
+                  <div *ngIf="f.duration.errors.required" class="errorMessages">
+                      Duration is required.
+                  </div>
+                </div>
+          </div>
+   </div>
+<br/> <br/>
+
+  <div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+          <div  class="ui-grid-col-2">
+                <b> ContactNumber *:</b>
+          </div>
+      <div  class="ui-grid-col-6">
+          <input type="text" value="9858745741" class="form-control" formControlName="phonenumber"  pKeyFilter="num"  pInputText   />
+          <div *ngIf="f.phonenumber.invalid && (f.phonenumber.dirty || f.phonenumber.touched) " class="alert alert-danger">
+              <div *ngIf="f.phonenumber.errors.required" class="errorMessages">
+                  ContactNumber is required.
+              </div>
+              <div *ngIf="f.phonenumber.errors.minlength" class="errorMessages">
+                  phonenumber should contain 10 characters
+              </div>
+              <div *ngIf="f.phonenumber.errors.maxlength" class="errorMessages">
+                  phonenumber should contain 10 characters
+              </div>
+            </div>
+      </div>
+   </div>
+<br/>
+
+
+
+ <div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+    <div  class="ui-grid-col-2">
+      <b>  Upload certificate *:</b>
+    </div>
+<div  class="ui-grid-col-6">
+   <!-- <p-fileUpload name="myfile[]"  ></p-fileUpload> 
+  <p-fileUpload name="myfile"></p-fileUpload>  -->
+   <input type="file" class="form-control"   (change)="selectFile($event)"  pInputText  /> 
+   
+</div>
+</div> 
+<br/> 
+
+<br/>
+
+
+<!-- 
+ <div  class="ui-grid-row">
+        <div class="ui-g-2"></div>
+    <div  class="ui-grid-col-2">
+      <b>  Enter the Captcha *:</b>
+    </div> -->
+<!-- <div  class="ui-grid-col-6"> -->
+   <!-- <p-fileUpload name="myfile[]"  ></p-fileUpload> 
+  <p-fileUpload name="myfile"></p-fileUpload>  -->
+  
+<!-- </div> -->
+<!-- </div>  -->
+<!-- <button  label="submit" [disabled]="registerForm.invalid"  id="but" pButton ></button> -->
+<br/>
+<p-messages [(value)]="msgs"></p-messages> 
+<!-- <button  label="submit" id="but" pButton  [disabled]="!(registerForm.valid&&!dateerror)"></button> -->
+<button  label="submit" id="but" pButton  ></button>
+
+ </form> 
+ 
+ <br/>
+
+</div>
+</div>
+
+</div>
+
+ <!-- </p-panel>  -->
+
+
+
+
+
+     
